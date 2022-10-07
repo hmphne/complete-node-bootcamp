@@ -5,7 +5,10 @@ const tourController = require('./../controllers/tourController');
 
 const router = express.Router()
 
-router.param('id', tourController.checkID)
+// router.param('id', tourController.checkID)
+router
+.route('/top-5-cheap')
+.get(tourController.aliasTopTours, tourController.getAllTours)
 
 // Create a checkbody middleware
 // check if body contains the name and price properties
@@ -15,7 +18,7 @@ router.param('id', tourController.checkID)
 router
 .route('/')
 .get(tourController.getAllTours)
-.post(tourController.checkBody, tourController.createTour)
+.post(tourController.createTour)
 
 router
 .route('/:id')
