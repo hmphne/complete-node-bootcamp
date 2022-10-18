@@ -14,6 +14,13 @@ router
 // check if body contains the name and price properties
 // if not, send back 400 ( bad request)
 // add it to the post handler stack
+router
+.route('/tour-stats')
+.get(tourController.getTourStats)
+
+router
+.route('/monthly-plan/:year')
+.get(tourController.getMonthlyPlan)
 
 router
 .route('/')
